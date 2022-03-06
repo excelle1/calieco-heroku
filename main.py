@@ -25,7 +25,7 @@ def signup():
   return render_template("signin.html")
   
 def postcard(name, address_line1, address_line2, address_city, address_state, address_zip):
-  card = lob.Postcard.create(
+  return lob.Postcard.create(
     to_address = {
       'name': name,
       'address_line1': address_line1,
@@ -34,14 +34,13 @@ def postcard(name, address_line1, address_line2, address_city, address_state, ad
       'address_state': address_state,
       'address_zip': address_zip
     },
-  front = '<html style="padding: 1in; font-size: 50;">Front HTML for {{name} </html>',
-  back = '<html style="padding: 1in; font-size: 20;">Back HTML for {{name}}</html>',
-  ) # Hard code the jpgs into front and back. 
-  return card
+  front = '<html style="padding: 1in; font-size: 50;">Front HTML </html>',
+  back = '<html style="padding: 1in; font-size: 20;">Back HTML</html>',
+  ) # Hard code the personal jpgs into front and back. 
   
 def dispCard():
   return lob.Postcard.list(limit=10)
 
 def get_name(): 
-        print(Hello what is your name)
+  return 
 web.run(app)
